@@ -3,8 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import BootstrapVue from 'bootstrap-vue';
 
-/* eslint-disable no-new */
+Vue.use(BootstrapVue);
+
 new Vue({
   el: '#app',
   router,
