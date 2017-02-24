@@ -7,6 +7,6 @@ export default class TeamsService extends AdsService {
         return this.get(`${ENDPOINT}/${id}`);
     }
     getAll() {
-        return this.get(`${ENDPOINT}/${id}`);
+        return this.get(`${ENDPOINT}`);
     }
 };
