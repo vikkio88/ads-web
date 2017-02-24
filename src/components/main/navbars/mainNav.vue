@@ -1,9 +1,13 @@
-<style></style>
+<style>
+    .navbar-brand span{
+        color: white;
+    }
+</style>
 <template>
-    <b-navbar toggleable full>
+    <b-navbar toggleable full type="inverse" variant="inverse">
         <b-nav-toggle target="nav_collapse" />
         <a class="navbar-brand" to="/">
-            <span>Bootstrap4</span>
+            <span>AD Simulator</span>
         </a>
         <b-collapse isNav id="nav_collapse">
             <b-nav isNavBar>
