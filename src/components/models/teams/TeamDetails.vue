@@ -22,6 +22,7 @@
             return {
                 team: {},
                 fields: {
+                    placeholder: { label: '#', sortable: false },
                     surname: { label: 'Surname', sortable: true },
                     name: { label: 'Name', sortable: false },
                     nationality: { label: 'Nationality', sortable: false },

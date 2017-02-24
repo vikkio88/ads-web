@@ -21,6 +21,7 @@
             return {
                 teams: [],
                 fields: {
+                    placeholder: { label: '#', sortable: false },
                     name: { label: 'Name', sortable: true },
                     nationality: { label: 'Nationality', sortable: true },
                     actions: { label: 'Actions' }
