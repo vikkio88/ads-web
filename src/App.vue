@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-  import MainNav from 'components/navbars/mainNav';
+  import MainNav from 'components/main/navbars/mainNav';
 
   export default {
     name: 'app',
