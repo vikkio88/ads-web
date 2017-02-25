@@ -36,7 +36,7 @@
             };
         },
         mounted() {
-            service.getOne(this.$route.params.teamId).then(
+            service.getOneWithRoster(this.$route.params.teamId).then(
                 (data) => {
                     this.team = data.body.payload;
                 },
