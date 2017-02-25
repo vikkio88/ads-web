@@ -2,7 +2,7 @@
 <template>
     <div>
         <div class="jumbotron">
-            <h1>{{team.name}}</h1>
+            <h1>{{team.name}} - Roster</h1>
             <h2>{{team.nationality}}</h2>
         </div>
         <b-form-fieldset horizontal label="Filter" class="col-6" :label-size="2">
