@@ -4,6 +4,7 @@ Vue.use(Router)
 
 import Teams from '../components/models/teams/Teams'
 import TeamRoster from '../components/models/teams/TeamRoster'
+import TeamCalendar from '../components/models/teams/TeamCalendar'
 
 export default new Router({
   routes: [
@@ -16,6 +17,11 @@ export default new Router({
       path: '/teams/:teamId/roster',
       name: 'team',
       component: TeamRoster
+    },
+    {
+      path: '/teams/:teamId/calendar',
+      name: 'team',
+      component: TeamCalendar
     },
     {
       path: '*',
