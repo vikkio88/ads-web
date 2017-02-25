@@ -6,7 +6,12 @@
         </b-form-fieldset>
         <b-table stripped hover :items="teams" :fields="fields" :filter="filter">
             <template slot="actions" scope="item">
-                <b-btn size="sm" @click="details(item.item.id)">Roster</b-btn>
+                <b-btn size="sm" variant="secondary" @click="details(item.item.id)">
+                    <i class="material-icons">people</i>
+                </b-btn>
+                <b-btn size="sm" variant="secondary" @click="details(item.item.id)">
+                    <i class="material-icons">insert_invitation</i>
+                </b-btn>
             </template>
         </b-table>
     </div>
