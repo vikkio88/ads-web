@@ -6,10 +6,10 @@
         </b-form-fieldset>
         <b-table stripped hover :items="teams" :fields="fields" :filter="filter">
             <template slot="actions" scope="item">
-                <b-btn size="sm" variant="secondary" @click="details(item.item.id)">
+                <b-btn size="sm" variant="secondary" @click="openRoster(item.item.id)">
                     <i class="material-icons">people</i>
                 </b-btn>
-                <b-btn size="sm" variant="secondary" @click="details(item.item.id)">
+                <b-btn size="sm" variant="secondary" @click="openCalendar(item.item.id)">
                     <i class="material-icons">insert_invitation</i>
                 </b-btn>
             </template>
@@ -45,8 +45,14 @@
             );
         },
         methods: {
-            details(id) {
-                this.$router.push({ name: 'team', params: { teamId: id } })
+            openRoster(teamId) {
+                this.goTo('teamRoster', teamId);
+            },
+            openCalendar(teamId) { 
+                this.goTo('teamCalendar', teamId)
+            },
+            goTo(route, teamId) {
+                this.$router.push({ name: route, params: { teamId } })
             }
         }
     }
