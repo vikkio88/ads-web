@@ -5,57 +5,63 @@
             <h1>{{team.name}} - Calendar</h1>
             <h2>{{team.nationality}}</h2>
         </div>
-        <strong> Home Matches </strong>
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Team</th>
-                    <th>Result</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="match in team.future_matches_home">
-                    <td></td>
-                    <td>{{match.away_team.name}} ({{match.away_team.nationality}})</td>
-                    <td v-if="match.simulated"> {{match.goal_home}} - {{match.goal_away}}</td>
-                    <td v-else=""> ? - ?</td>
-                </tr>
-            </tbody>
-        </table>
-        <strong> Away Matches </strong>
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Team</th>
-                    <th>Result</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="match in team.future_matches_away">
-                    <td></td>
-                    <td>{{match.home_team.name}} ({{match.home_team.nationality}})</td>
-                    <td v-if="match.simulated"> {{match.goal_home}} - {{match.goal_away}}</td>
-                    <td v-else=""> ? - ?</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="card">
+            <h3 class="card-header" @click="togglePlayed">Played Matches</h3>
+            <div class="card-block" v-if="!collapsePlayed">
+                <div class="card">
+                    <div class="card-block">
+                        <strong> Home Matches </strong>
+                        <team-match-table opponent="away_team" :matches="team.played_matches_home" />
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-block">
+                        <strong> Away Matches </strong>
+                        <team-match-table opponent="home_team" :matches="team.played_matches_away" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-header" @click="toggleFuture">Future Matches</h3>
+            <div class="card-block" v-if="!collapseFuture">
+                <div class="card">
+                    <div class="card-block">
+                        <strong> Home Matches </strong>
+                        <team-match-table opponent="away_team" :matches="team.future_matches_home" />
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-block">
+                        <strong> Away Matches </strong>
+                        <team-match-table opponent="home_team" :matches="team.future_matches_away" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 <script>
     import TeamsService from '../../../services/ads/TeamsService'
+    import TeamMatchTable from '../../shared/matches/TeamMatchTable'
 
     const service = new TeamsService();
     export default {
         name: 'team-calendar',
+        components: {
+            TeamMatchTable
+        },
         data() {
             return {
-                team: {}
+                team: {},
+                collapsePlayed: false,
+                collapseFuture: false
             };
         },
         mounted() {
-            service.getOne(this.$route.params.teamId).then(
+            service.getOneWithMatches(this.$route.params.teamId).then(
                 (data) => {
                     this.team = data.body.payload;
                 },
@@ -63,6 +69,14 @@
                     console.log(error)
                 }
             );
+        },
+        methods: {
+            togglePlayed() {
+                this.collapsePlayed = !this.collapsePlayed;
+            },
+            toggleFuture() {
+                this.collapseFuture = !this.collapseFuture;
+            },
         }
     }
 
