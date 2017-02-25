@@ -3,7 +3,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 import Teams from '../components/models/teams/Teams'
-import TeamDetails from '../components/models/teams/TeamDetails'
+import TeamRoster from '../components/models/teams/TeamRoster'
 
 export default new Router({
   routes: [
@@ -13,9 +13,9 @@ export default new Router({
       component: Teams
     },
     {
-      path: '/teams/:teamId',
+      path: '/teams/:teamId/roster',
       name: 'team',
-      component: TeamDetails
+      component: TeamRoster
     },
     {
       path: '*',
