@@ -17,7 +17,7 @@
 
     const service = new TeamsService();
     export default {
-        name: 'team-details',
+        name: 'team-roster',
         data() {
             return {
                 team: {},
