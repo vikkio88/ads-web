@@ -15,12 +15,12 @@ export default new Router({
     },
     {
       path: '/teams/:teamId/roster',
-      name: 'team',
+      name: 'teamRoster',
       component: TeamRoster
     },
     {
       path: '/teams/:teamId/calendar',
-      name: 'team',
+      name: 'teamCalendar',
       component: TeamCalendar
     },
     {
