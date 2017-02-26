@@ -10,7 +10,7 @@
         <div class="card">
             <h3 class="card-header"> Coach </h3>
             <div class="card-block">
-                <table class="table">
+                <table class="table table-hover">
                     <tbody>
                         <tr>
                             <td>Name</td>
