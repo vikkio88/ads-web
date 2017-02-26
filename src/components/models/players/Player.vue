@@ -6,8 +6,7 @@
 <template>
     <div>
         <div class="jumbotron">
-            <h1>{{player.surname}} {{player.name}}</h1>
-            <h2><flag :iso="player.nationality" /></h2>
+            <h1>{{player.surname}} {{player.name}} <flag :iso="player.nationality" /></h1>
             <router-link :to="{name:'teamRoster', params:{teamId:team.id}}">
                 <h3>{{team.name}} <flag :iso="team.nationality" /></h3>
             </router-link>
