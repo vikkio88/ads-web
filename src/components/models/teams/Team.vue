@@ -6,7 +6,9 @@
             <h2>
                 <flag :iso="team.nationality" />
             </h2>
+            <team-view-actions :team-id="team.id" />
         </div>
+
         <div class="card">
             <h3 class="card-header"> Coach </h3>
             <div class="card-block">
@@ -46,6 +48,7 @@
 </template>
 <script>
     import TeamsService from '../../../services/ads/TeamsService'
+    import TeamViewActions from '../../shared/teams/TeamViewActions'
 
     const service = new TeamsService();
     export default {
@@ -55,6 +58,9 @@
                 team: {},
                 coach: {}
             };
+        },
+        components: {
+            TeamViewActions
         },
         mounted() {
             service.getOne(this.$route.params.teamId).then(

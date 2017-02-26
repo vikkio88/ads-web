@@ -31,17 +31,6 @@
                     console.log(error)
                 }
             );
-        },
-        methods: {
-            openRoster(teamId) {
-                this.goTo('teamRoster', teamId);
-            },
-            openCalendar(teamId) {
-                this.goTo('teamCalendar', teamId)
-            },
-            goTo(route, teamId) {
-                this.$router.push({ name: route, params: { teamId } })
-            }
         }
     }
 

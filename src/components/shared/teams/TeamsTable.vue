@@ -7,6 +7,7 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Country</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,6 +21,9 @@
                     <td>
                         <flag :iso="team.nationality" />
                     </td>
+                    <td>
+                        <team-view-actions :team-id="team.id"/>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -31,8 +35,12 @@
     </div>
 </template>
 <script>
+    import TeamViewActions from './TeamViewActions';
     export default {
         name: "teamsTable",
+        components: {
+            TeamViewActions
+        },
         props: {
             teams: { type: Array, default: () => [] }
         }
