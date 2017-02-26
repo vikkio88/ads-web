@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-  import MainNav from 'components/main/navbars/mainNav';
+  import MainNav from 'components/main/navbars/MainNav';
   import Bottom from 'components/main/Bottom';
 
   export default {
