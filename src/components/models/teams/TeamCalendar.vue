@@ -5,9 +5,6 @@
             <h1>{{team.name}} - Calendar</h1>
             <h2>{{team.nationality}}</h2>
         </div>
-        <b-breadcrumb :items="[{text: 'Home', link: '#', active: true},
-{text: 'Manage', link: '#', active: true},
-{text: 'Library', active: false}]" />
         <div class="card">
             <h3 class="card-header" @click="togglePlayed">Played Matches</h3>
             <div class="card-block" v-if="!collapsePlayed">
