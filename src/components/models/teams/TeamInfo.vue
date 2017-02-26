@@ -1,6 +1,7 @@
 <style></style>
 <template>
     <div>
+        <b-breadcrumb :items="breadcrumbs" />
         <div class="jumbotron">
             <h1>{{team.name}}</h1>
             <h2>
@@ -55,7 +56,10 @@
         data() {
             return {
                 team: {},
-                coach: {}
+                coach: {},
+                breadcrumbs: [
+                    { text: 'Team', link: './', active: true }
+                ]
             };
         },
         components: {

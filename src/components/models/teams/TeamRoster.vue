@@ -1,6 +1,7 @@
 <style></style>
 <template>
     <div>
+        <b-breadcrumb @click="teamInfo" :items="breadcrumbs" />
         <div class="jumbotron">
             <h1>{{team.name}} - Roster</h1>
             <h2>
@@ -24,8 +25,17 @@
         data() {
             return {
                 team: {},
-                players: []
+                players: [],
+                breadcrumbs: [
+                    { text: 'Team', active: false },
+                    { text: 'Roster', active: true }
+                ]
             };
+        },
+        methods: {
+            teamInfo(event) {
+                this.$router.push({ name: 'team', params: { teamId: this.$route.params.teamId } });
+            }
         },
         mounted() {
             service.getOneWithRoster(this.$route.params.teamId).then(

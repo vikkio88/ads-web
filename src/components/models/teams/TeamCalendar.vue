@@ -1,6 +1,7 @@
 <style></style>
 <template>
     <div>
+        <b-breadcrumb @click="teamInfo" :items="breadcrumbs" />
         <div class="jumbotron">
             <h1>{{team.name}} - Calendar</h1>
             <h2>{{team.nationality}}</h2>
@@ -57,7 +58,11 @@
             return {
                 team: {},
                 collapsePlayed: false,
-                collapseFuture: false
+                collapseFuture: false,
+                breadcrumbs: [
+                    { text: 'Team', active: false },
+                    { text: 'Calendar', active: true }
+                ]
             };
         },
         mounted() {
@@ -71,6 +76,9 @@
             );
         },
         methods: {
+            teamInfo(event) {
+                this.$router.push({ name: 'team', params: { teamId: this.$route.params.teamId } });
+            },
             togglePlayed() {
                 this.collapsePlayed = !this.collapsePlayed;
             },
