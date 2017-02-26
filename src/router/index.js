@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 
+import Leagues from '../components/models/leagues/Leagues'
+import League from '../components/models/leagues/League'
+import Round from '../components/models/leagues/Round'
 import Teams from '../components/models/teams/Teams'
 import Team from '../components/models/teams/Team'
 import TeamInfo from '../components/models/teams/TeamInfo'
@@ -11,6 +14,21 @@ import Player from '../components/models/players/Player'
 
 export default new Router({
   routes: [
+    {
+      path: '/leagues',
+      name: 'leagues',
+      component: Leagues
+    },
+    {
+      path: '/leagues/:leagueId',
+      name: 'league',
+      component: League
+    },
+    {
+      path: '/leagues/:leagueId/rounds/:roundId',
+      name: 'round',
+      component: Round
+    },
     {
       path: '/teams',
       name: 'teams',
@@ -38,7 +56,7 @@ export default new Router({
       ]
     },
     {
-      path: '/players/:playerId/details',
+      path: '/players/:playerId',
       name: 'player',
       component: Player
     },
