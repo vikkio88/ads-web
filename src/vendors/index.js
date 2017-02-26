@@ -1,0 +1,1 @@
+import flagIconCss from 'flag-icon-css/css/flag-icon.css'
