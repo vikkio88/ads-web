@@ -13,7 +13,7 @@
 
     const service = new TeamsService();
     export default {
-        name: 'team-details',
+        name: 'teams',
         components: {
             TeamsTable
         },
