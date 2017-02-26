@@ -14,7 +14,11 @@
             <tbody>
                 <tr v-for="match in matches">
                     <td></td>
-                    <td>{{match.date}}</td>
+                    <td>
+                        <router-link :to="{ name: 'round', params: { leagueId: match.round.league_id, roundId: match.league_round_id } }">
+                            {{match.date}}
+                        </router-link>
+                    </td>
                     <td>
                         <router-link :to="{ name: 'team', params: { teamId: match[opponent].id } }">
                             {{match[opponent].name}}
