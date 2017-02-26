@@ -37,7 +37,7 @@
 </template>
 <script>
     export default {
-        name: "singleTeam",
+        name: "teamMatchTable",
         props: {
             opponent: { type: String, default: 'away_team' },
             matches: { type: Array, default: () => [] }
