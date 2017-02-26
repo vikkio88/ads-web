@@ -51,17 +51,17 @@
                             <tbody>
                                 <tr>
                                     <td>Avg</td>
-                                    <td v-if="player.avg">{{player.avg}}</td>
+                                    <td v-if="player.avg">{{player.avg.avg}}</td>
                                     <td v-else>-</td>
                                 </tr>
                                 <tr>
                                     <td>Appearances</td>
-                                    <td v-if="player.avg">{{player.appearances}}</td>
+                                    <td v-if="player.avg">{{player.appearances.count}}</td>
                                     <td v-else>-</td>
                                 </tr>
                                 <tr>
                                     <td>Goals</td>
-                                    <td v-if="player.avg">{{player.goals}}</td>
+                                    <td v-if="player.avg">{{player.goals.count}}</td>
                                     <td v-else>-</td>
                                 </tr>
                             </tbody>
