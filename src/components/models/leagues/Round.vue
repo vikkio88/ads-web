@@ -9,12 +9,12 @@
                 - Matchday {{round.day}}
             </h1>
         </div>
-
-        <pre>{{round.matches}}</pre>
+        <matches-table :matches="round.matches" />
     </div>
 </template>
 <script>
     import LeaguesService from '../../../services/ads/LeaguesService'
+    import MatchesTable from '../../shared/matches/MatchesTable'
 
     const service = new LeaguesService();
     export default {
@@ -23,6 +23,9 @@
             return {
                 round: {}
             };
+        },
+        components: {
+            MatchesTable
         },
         mounted() {
             service.getOneRound(this.$route.params.leagueId, this.$route.params.roundId).then(
