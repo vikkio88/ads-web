@@ -1,9 +1,14 @@
-<style>
+<style scoped>
+  div.container {
+    margin-bottom: 30px;
+  }
 </style>
 <template>
   <div id="app">
     <main-nav />
-    <router-view></router-view>
+    <div class="container">
+      <router-view></router-view>
+    </div>
     <bottom />
   </div>
 </template>
