@@ -3,7 +3,9 @@
     <div>
         <div class="jumbotron">
             <h1>{{team.name}} - Roster</h1>
-            <h2>{{team.nationality}}</h2>
+            <h2>
+                <flag :iso="team.nationality" />
+            </h2>
         </div>
         <players-table :players="team.roster" />
     </div>
