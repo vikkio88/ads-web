@@ -9,16 +9,16 @@
                 <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Teams #</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="league in leagues">
                     <td></td>
                     <td>
-                        {{league.name}}
+                        <router-link :to="{ name: 'league', params: { leagueId: league.id } }">
+                            {{league.name}}
+                        </router-link>
                     </td>
-                    <td>{{league.teams}}</td>
                 </tr>
             </tbody>
         </table>
