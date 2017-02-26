@@ -11,23 +11,23 @@
                     <th>Role</th>
                     <th>Skills</th>
                     <th>Value</th>
-                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="player in players">
                     <td></td>
-                    <td>{{player.surname}} {{player.name}}</td>
-                    <td>{{player.nationality}}</td>
+                    <td>
+                        <router-link :to="{ name: 'player', params: { playerId: player.id } }">
+                            {{player.surname}} {{player.name}}
+                        </router-link>
+                    </td>
+                    <td>
+                        <flag :iso="player.nationality" />
+                    </td>
                     <td>{{player.age}}</td>
                     <td>{{player.role}}</td>
                     <td>{{player.skillAvg}}</td>
                     <td>{{player.val}}m €</td>
-                    <td>
-                        <b-btn size="sm" variant="secondary" @click="playerDetails(player.id)">
-                            <i class="material-icons">people</i>
-                        </b-btn>
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -43,11 +43,6 @@
         name: "singleTeam",
         props: {
             players: { type: Array, default: () => [] }
-        },
-        methods: {
-            playerDetails(playerId) {
-                this.$router.push({ name: 'player', params: { playerId } });
-            }
         }
     }
 
