@@ -1,37 +1,25 @@
 <style></style>
 <template>
     <div>
-        <b-form-fieldset horizontal label="Filter" class="col-6" :label-size="2">
-            <b-form-input v-model="filter" placeholder="Type to Search"></b-form-input>
-        </b-form-fieldset>
-        <b-table stripped hover :items="teams" :fields="fields" :filter="filter">
-            <template slot="actions" scope="item">
-                <b-btn size="sm" variant="secondary" @click="openRoster(item.item.id)">
-                    <i class="material-icons">people</i>
-                </b-btn>
-                <b-btn size="sm" variant="secondary" @click="openCalendar(item.item.id)">
-                    <i class="material-icons">insert_invitation</i>
-                </b-btn>
-            </template>
-        </b-table>
+        <div class="jumbotron">
+            <h1>Teams</h1>
+        </div>
+        <teams-table :teams="teams" />
     </div>
 </template>
 <script>
     import TeamsService from '../../../services/ads/TeamsService'
+    import TeamsTable from '../../shared/teams/TeamsTable'
 
     const service = new TeamsService();
     export default {
         name: 'team-details',
+        components: {
+            TeamsTable
+        },
         data() {
             return {
-                teams: [],
-                fields: {
-                    placeholder: { label: '#', sortable: false },
-                    name: { label: 'Name', sortable: true },
-                    nationality: { label: 'Nationality', sortable: true },
-                    actions: { label: 'Actions' }
-                },
-                filter: null
+                teams: []
             };
         },
         mounted() {
@@ -48,7 +36,7 @@
             openRoster(teamId) {
                 this.goTo('teamRoster', teamId);
             },
-            openCalendar(teamId) { 
+            openCalendar(teamId) {
                 this.goTo('teamCalendar', teamId)
             },
             goTo(route, teamId) {
