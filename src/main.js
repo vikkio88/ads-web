@@ -3,13 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import './vendors'
 import './components'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import BootstrapVue from 'bootstrap-vue'
-import Flag from 'vue-flag-icon'
-
-Vue.use(BootstrapVue);
-Vue.use(Flag);
 
 new Vue({
   el: '#app',
