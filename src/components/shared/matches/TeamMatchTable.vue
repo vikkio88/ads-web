@@ -7,6 +7,7 @@
                     <th>#</th>
                     <th>Day</th>
                     <th>Opponent</th>
+                    <th>Country</th>
                     <th>Result</th>
                 </tr>
             </thead>
@@ -14,7 +15,14 @@
                 <tr v-for="match in matches">
                     <td></td>
                     <td>{{match.date}}</td>
-                    <td>{{match[opponent].name}} ({{match[opponent].nationality}})</td>
+                    <td>
+                        <router-link :to="{ name: 'team', params: { teamId: match[opponent].id } }">
+                            {{match[opponent].name}}
+                        </router-link>
+                    </td>
+                    <td>
+                        <flag :iso="match[opponent].nationality" />
+                    </td>
                     <td v-if="match.simulated"> {{match.goal_home}} - {{match.goal_away}}</td>
                     <td v-else=""> ? - ?</td>
                 </tr>
