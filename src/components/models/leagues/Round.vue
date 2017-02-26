@@ -6,6 +6,7 @@
                 <router-link :to="{ name: 'league', params: { leagueId: round.league.id } }">
                     {{round.league.name}}
                 </router-link>
+                - Matchday {{round.day}}
             </h1>
         </div>
 
