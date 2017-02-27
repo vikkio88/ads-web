@@ -3,8 +3,8 @@
     <div>
         <div class="jumbotron">
             <h1>
-                <router-link :to="{ name: 'league', params: { leagueId: round.league.id } }">
-                    {{round.league.name}}
+                <router-link :to="{ name: 'league', params: { leagueId: round.league_id } }">
+                    {{league.name}}
                 </router-link>
                 - Matchday {{round.day}}
             </h1>
@@ -21,7 +21,8 @@
         name: 'round',
         data() {
             return {
-                round: {}
+                round: {},
+                league: {}
             };
         },
         components: {
@@ -31,6 +32,7 @@
             service.getOneRound(this.$route.params.leagueId, this.$route.params.roundId).then(
                 (data) => {
                     this.round = data.body.payload;
+                    this.league = this.round.league;
                 },
                 (error) => {
                     console.log(error)
