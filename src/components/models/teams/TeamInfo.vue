@@ -21,7 +21,7 @@
                         <tr>
                             <td>Nationality</td>
                             <td>
-                                <flag :iso="coach.nationality">
+                                <flag :iso="coach.nationality" />
                             </td>
                         </tr>
                         <tr>
