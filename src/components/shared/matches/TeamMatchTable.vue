@@ -27,8 +27,16 @@
                     <td>
                         <flag :iso="match[opponent].nationality" />
                     </td>
-                    <td v-if="match.simulated"> {{match.goal_home}} - {{match.goal_away}}</td>
-                    <td v-else=""> ? - ?</td>
+                    <td>
+                        <router-link :to="{ name: 'match', params: { matchId: match.id } }">
+                            <span v-if="match.simulated">
+                                {{match.goal_home}} - {{match.goal_away}}
+                            </span>
+                            <span v-else>
+                                ? - ?
+                            </span>
+                        </router-link>
+                    </td>
                 </tr>
             </tbody>
         </table>
