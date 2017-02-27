@@ -5,6 +5,7 @@ Vue.use(Router)
 import Leagues from '../components/models/leagues/Leagues'
 import League from '../components/models/leagues/League'
 import Round from '../components/models/leagues/Round'
+import Match from '../components/models/matches/Match'
 import Teams from '../components/models/teams/Teams'
 import Team from '../components/models/teams/Team'
 import TeamInfo from '../components/models/teams/TeamInfo'
@@ -28,6 +29,11 @@ export default new Router({
       path: '/leagues/:leagueId/rounds/:roundId',
       name: 'round',
       component: Round
+    },
+    {
+      path: '/matches/:matchId',
+      name: 'match',
+      component: Match
     },
     {
       path: '/teams',
