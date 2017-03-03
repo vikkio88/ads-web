@@ -8,6 +8,7 @@
                     <router-link :to="{ name: 'player', params: { playerId: scorer.id } }">
                         {{scorer.surname}} {{scorer.name}}
                     </router-link>
+                    <span v-if="scorer.pivot.goals > 1"> (x{{scorer.pivot.goals}})</span>
                 </td>
             </tr>
         </tbody>
