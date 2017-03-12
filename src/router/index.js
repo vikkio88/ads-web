@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 
+import MainStats from '../components/models/stats/MainStats'
 import Leagues from '../components/models/leagues/Leagues'
 import League from '../components/models/leagues/League'
 import Round from '../components/models/leagues/Round'
@@ -15,6 +16,11 @@ import Player from '../components/models/players/Player'
 
 export default new Router({
   routes: [
+    {
+      path: '/stats',
+      name: 'stats',
+      component: MainStats
+    },
     {
       path: '/leagues',
       name: 'leagues',
