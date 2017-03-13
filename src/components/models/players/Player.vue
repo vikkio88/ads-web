@@ -20,6 +20,10 @@
                         <table class="table table-hover">
                             <tbody>
                                 <tr>
+                                    <td>Age</td>
+                                    <td>{{player.age}}</td>
+                                </tr>
+                                <tr>
                                     <td>Role</td>
                                     <td>{{player.role}}</td>
                                 </tr>
