@@ -2,6 +2,14 @@
     .navbar-brand span {
         color: white;
     }
+    ul.nav a {
+        color: white;
+        text-decoration: none;
+    }
+
+    ul.nav li:hover {
+        background-color: #333
+    }
 </style>
 <template>
     <b-navbar toggleable full type="inverse" variant="inverse">
