@@ -9,13 +9,13 @@
                     <th>Name</th>
                     <th>Nationality</th>
                     <th>Team</th>
+                    <th v-if="stat == 'goals'">Goals</th>
+                    <th v-if="stat == 'avg'">Avg</th>
                     <th>Appearances</th>
-                    <th>Goals</th>
-                    <th>Avg</th>
                 </tr>
             </thead>
             <tbody>
-                <player-stats-row :player="player" :team="player.team" v-for="player in players"/>
+                <player-stats-row :player="player" :team="player.team" v-for="player in players" :stat="stat"/>
             </tbody>
         </table>
         <div class="card" v-else>
@@ -34,7 +34,8 @@ export default {
         PlayerStatsRow
     },
     props: {
-        players: {type: Array, default: () => []}
+        players: {type: Array, default: () => []},
+        stat: {type: String, default: 'goals'}
     }
 }
 </script>

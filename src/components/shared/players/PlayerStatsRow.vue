@@ -16,9 +16,9 @@
             {{team.name}}
         </router-link>
     </td>
+    <td v-if="stat == 'goals'">{{player.goals}}</td>
+    <td v-if="stat == 'avg'">{{parseFloat(player.avg).toFixed(2)}}</td>
     <td>{{player.appearances}}</td>
-    <td>{{player.goals}}</td>
-    <td>{{parseFloat(player.avg).toFixed(2)}}</td>
 </tr>
 </template>
 <script>
@@ -26,7 +26,8 @@ export default {
     name: "playerStatsRow",
     props: {
         player: {type: Object, default: () => {}},
-        team: {type: Object, default: () => {}}
+        team: {type: Object, default: () => {}},
+        stat: {type: String, default: 'goals'}
     }
 }
 </script>
