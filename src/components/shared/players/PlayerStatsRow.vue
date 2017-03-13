@@ -11,10 +11,14 @@
     <td>
         <flag :iso="player.nationality" />
     </td>
-    <td>{{team.name}}</td>
+    <td>
+        <router-link :to="{ name: 'team', params: { teamId: team.id } }">
+            {{team.name}}
+        </router-link>
+    </td>
     <td>{{player.appearances}}</td>
     <td>{{player.goals}}</td>
-    <td>{{player.avg}}</td>
+    <td>{{parseFloat(player.avg).toFixed(2)}}</td>
 </tr>
 </template>
 <script>
