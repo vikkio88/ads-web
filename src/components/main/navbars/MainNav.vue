@@ -20,6 +20,11 @@
         <b-collapse isNav id="nav_collapse">
             <b-nav isNavBar>
                 <b-nav-item>
+                    <router-link to="/stats">
+                        Stats
+                    </router-link>
+                </b-nav-item>
+                <b-nav-item>
                     <router-link to="/leagues">
                         Leagues
                     </router-link>
